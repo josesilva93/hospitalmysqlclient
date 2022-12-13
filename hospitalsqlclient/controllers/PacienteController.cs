@@ -55,38 +55,24 @@ namespace testefcore.controllers
            }*/
 
 
-        /** public Paciente DarAltaPacienteByDNI(string dni)
+         public void DarAltaPacienteByDNI(string dni)
          {
-             Paciente paciente = service.FindPacienteByDNI(dni);
-             paciente.dado_Alta = true;
-             service.UpdatePaciente(paciente);
-             return paciente;
+             service.AltaPacienteByDNI(dni);         
          }
          public void BorrarPacienteByDNI(string dni)
          {
-             Paciente paciente = service.FindPacienteByDNI(dni);
-             service.BorrarPaciente(paciente);
+             service.BorrarPaciente(dni);
          }
-         public void CrearPruebaPacienteByDNI(string dni, string nombre_prueba)
+         public void CrearPruebaPacienteByDNI(string nombrePrueba, string dniPaciente)
          {
-             Paciente paciente = service.FindPacienteByDNI(dni);
-             Prueba prueba = new Prueba();
-             prueba.nombre = nombre_prueba;  
-             prueba.paciente = paciente;
-             service.Save(prueba);
-             Console.WriteLine(prueba.nombre);
-             Console.WriteLine(paciente.nombre);     
+            int idPaciente = service.GetIdByDNI(dniPaciente);
+            service.AsignarMedicamentoPrueba(nombrePrueba, idPaciente);
+        }
+        public void AsignarMedicamentoPacienteByDNI(string nombreMedicamento, string dniPaciente)
+         {
+            int idPaciente = service.GetIdByDNI(dniPaciente);
+             service.AsignarMedicamentoPaciente(nombreMedicamento, idPaciente);
          }
-        public void AsignarMedicamentoPacienteByDNI(string dni, string nombre_medicamento)
-         {
-             Paciente paciente = service.FindPacienteByDNI(dni);
-             Medicamento medicamento = new Medicamento();
-             medicamento.nombre = nombre_medicamento;
-             medicamento.paciente = paciente;
-             service.Save(medicamento);
-             Console.WriteLine(medicamento.nombre);
-             Console.WriteLine(paciente.nombre);
-         }*/
     }
 }
 

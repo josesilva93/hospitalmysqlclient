@@ -82,7 +82,7 @@ namespace hospital
             try
             {
                 Console.WriteLine("Introduzca el dni del paciente:");
-             //   Paciente paciente = pacienteController.DarAltaPacienteByDNI(Console.ReadLine());
+                pacienteController.DarAltaPacienteByDNI(Console.ReadLine());
                 Console.WriteLine("Introduzca la nota especifica de alta: ");
                 string nota_alta = Console.ReadLine();
                // Console.WriteLine("Paciente dado de alta: " + paciente.nombre);
@@ -109,7 +109,7 @@ namespace hospital
             {
                 Console.WriteLine("Introduzca el dni del paciente:");
                 string dni = Console.ReadLine();
-            //    pacienteController.BorrarPacienteByDNI(dni);
+                pacienteController.BorrarPacienteByDNI(dni);
                 Console.WriteLine("Paciente con dni" + dni + "eliminado.");
             }
             catch (IOException ex)
@@ -133,7 +133,7 @@ namespace hospital
                 Console.WriteLine("Introduzca el dni del paciente:");
                 string dni = Console.ReadLine();
                 string pruebaSeleccionada = MenuPruebas();
-             //   pacienteController.CrearPruebaPacienteByDNI(dni, pruebaSeleccionada);
+                pacienteController.CrearPruebaPacienteByDNI(pruebaSeleccionada, dni);
                 Console.WriteLine("Se asigno una prueba de: " + pruebaSeleccionada);
                 pacienteController.MostrarPacientes();
             }
@@ -159,7 +159,7 @@ namespace hospital
                 Console.WriteLine("Introduzca el dni del paciente:");
                 string dni = Console.ReadLine();
                 string medicamenteRecetado = MenuMedicamentos();
-            //    pacienteController.AsignarMedicamentoPacienteByDNI(dni, medicamenteRecetado);
+                pacienteController.AsignarMedicamentoPacienteByDNI(medicamenteRecetado,dni);
             }
             catch (IOException ex)
             {
